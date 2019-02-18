@@ -4,29 +4,31 @@ data = np.loadtxt("finefoods.txt.partaa",dtype = str,delimiter = '\n')
 
 dic = {}
 temp = [None] * 4 ##record transformation
-user = ""         ##userID
-boo = 0           ##if it is new user
+user = "test"         ##userID
+boo = 1           ##if it is new user
 cnt = 0
 for line in data:
-	while cnt < 100:
-	    cnt += 1
-		if line[0:9] = "product/p":
-			if boo = 1:
+	while cnt < 20:
+	        cnt += 1
+		if line[0:9] == "product/p":
+			if boo == 1:
 				dic[user] = [user,temp]
 			else:
-				dic[user] = dic[user]+[temp]
+				dic[user] += [temp]
 
 			temp = [None] * 4
 			temp[0] = line[19:]
-		elif line[0:9] = "review/us":
+		elif line[0:9] == "review/us":
 			user = line[15:]
 			if user not in dic:
-					boo = 1
-		elif line[0:9] = "review/he":
+				boo = 1
+			else:
+				boo = 0
+		elif line[0:9] == "review/he":
 			temp[1] = line[20:]
-		elif line[0:9] = "review/sc"
+		elif line[0:9] == "review/sc":
 			temp[2] = line[14:]
-		elif line[0:9] = "review/ti"
+		elif line[0:9] == "review/ti":
 			temp[3] = line[13:]
 
 text_file = open("Outputtest.txt", "w")
