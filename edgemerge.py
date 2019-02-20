@@ -5,16 +5,18 @@ data = np.loadtxt('edge.txt', dtype = str, delimiter = '\n')
 countedge = []
 print "open data success"
 for edge in data:
+
     edge  = edge.split()
     boo = 0
     for exis in countedge:
         if edge[0] == exis[0] and edge[1] == exis[1]:
             exis[2] += 1
             boo = 1
-        if boo == 0:
-            edge.append(1)
-            countedge.append(edge)
-print len(countedge)
+    if boo == 0:
+        edge.append(1)
+        countedge.append(edge)
+
+
 productbased = []
 for aftercnt in countedge:
     boo = 0
@@ -22,11 +24,12 @@ for aftercnt in countedge:
         if alexist[0] == aftercnt[0]:
             alexist.append(aftercnt[1:3])
             boo = 1
-        if boo == 0:
-            productbased.append([aftercnt[0],[aftercnt[1],aftercnt[2]]])
+    if boo == 0:
+        productbased.append([aftercnt[0],[aftercnt[1],aftercnt[2]]])
 
 with open('productneighbor.pkl',"wb") as pro:
     pickle.dump(productbased, pro)
+
 '''
 text_file = open("countedge.txt", "w")
 for edge in countedge:
