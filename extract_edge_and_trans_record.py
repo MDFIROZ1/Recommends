@@ -33,7 +33,7 @@ for path in paths:
 
 			temp = [None] * 4
 			temp[0] = line[19:]
-			boo = 0
+			boo = 0 
 		elif line[0:9] == "review/us":
 
 			user = line[15:]
