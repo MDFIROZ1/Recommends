@@ -1,4 +1,5 @@
 import numpy as np
+import pickle
 
 data = np.loadtxt('edge.txt', dtype = str, delimiter = '\n')
 countedge = []
@@ -13,7 +14,19 @@ for edge in data:
             edge.append(1)
             countedge.append(edge)
 
+productbased = []
+for aftercnt in countedge:
+    boo = 0
+    for alexist in productbased:
+        if alexist[0] == aftercnt[0]:
+            alexist.append(aftercnt[1:3])
+            boo = 1
+        if boo == 0:
+            productbased.append([aftercnt[0],[aftercnt[1],aftercnt[2]]])
 
+with open('productneighbor.pkl',"wb") as pro:
+    pickle.dump(productbased, pro)
+'''
 text_file = open("countedge.txt", "w")
 for edge in countedge:
     text_file.write(edge[0])
@@ -23,3 +36,4 @@ for edge in countedge:
     text_file.write(edge[2])
     text_file.write('\n')
 text_file.close()
+'''
