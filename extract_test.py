@@ -6,7 +6,6 @@ paths = ['finefoods.txt.partaa', 'finefoods.txt.partab', 'finefoods.txt.partac',
   'finefoods.txt.partag', 'finefoods.txt.partah', 'finefoods.txt.partai',
    'finefoods.txt.partaj']
 
-
 dic = []
 countcom = 0
 countuse = 0

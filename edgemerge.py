@@ -3,6 +3,7 @@ import pickle
 
 data = np.loadtxt('edge.txt', dtype = str, delimiter = '\n')
 countedge = []
+print "open data success"
 for edge in data:
     edge  = edge.split()
     boo = 0
@@ -13,7 +14,7 @@ for edge in data:
         if boo == 0:
             edge.append(1)
             countedge.append(edge)
-
+print len(countedge)
 productbased = []
 for aftercnt in countedge:
     boo = 0
