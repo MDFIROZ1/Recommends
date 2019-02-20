@@ -37,16 +37,15 @@ for line in data:
 		temp[2] = line[14:]
 	elif line[0:9] == "review/ti":
 		temp[3] = line[13:]
-
-data = []
+ 
 ########sort the purchase record by time#####################
 
 for rec in dic:
 	rec[1:len(rec)] = sorted(rec[1:len(rec)],key = itemgetter(3))
 print len(dic)
 #######build the edge######################
-count = 0
-text_file = open("edge.txt", "w")
+
+text_file = open("edgetest.txt", "w")
 prod_a = None
 prod_b = None
 for rec in dic:
@@ -56,11 +55,9 @@ for rec in dic:
 			text_file.write(' ')
 			text_file.write(rec[ele+1][0])
 			text_file.write('\n')
-	else:
-		count +=1
 
 text_file.close()
-print (count)
+
 
 
 
