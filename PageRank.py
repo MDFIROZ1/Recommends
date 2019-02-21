@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 def PageRank(M, alpha, root):
     """
     Personal Rank in matrix formation
@@ -33,7 +34,10 @@ def Generate_Transfer_Matrix(G):
     # generate Transfer probability matrix M, shape of (n,n)
     M = np.zeros([n,n])
     for node1 in G.keys():
+	print node1
+	print ('================')
         for node2 in G[node1]:
+	    print node2
             # FIXME: some nodes not in the Graphs.keys, may incur some errors
             try:
                 M[node2index[node2],node2index[node1]] = 1/len(G[node1])
