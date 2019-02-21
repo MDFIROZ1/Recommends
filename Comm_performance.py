@@ -1,4 +1,5 @@
 import pickle
+from collections import Counter
 
 def getKeysByValue(dictOfElements, valueToFind):
     listOfKeys = list()
@@ -21,15 +22,34 @@ with open('user_dic50it.pkl',"rb") as test:
 totalguess = 0
 correct = 0
 wrong = 0
-
-
+'''
 for data in testdata:
     totalguess += 1
+    print totalguess
     recom = []
     for target in data[0]:
         for lab in label:
             if label[user_dic[target]] == lab and label.index(lab) != user_dic[target]:
                 recom.append(getKeysByValue(user_dic, label.index(lab)))
+    for ans in data[1]:
+        if ans in recom:
+            correct += 1
+            break
+    wrong += 1
+'''
+for data in testdata:
+    totalguess += 1
+    print totalguess
+    recom = []
+    labelcnt = []
+    recomm_community = None
+    for target in data[0]:
+        labelcnt.append(label[user_dic[target]])
+    count = Counter(labelcnt)
+    recomm_community = count.most_common()[0][0]
+    for lab in label:
+        if lab == recomm_community:
+            recom.append(getKeysByValue(user_dic, label.index(lab)))
     for ans in data[1]:
         if ans in recom:
             correct += 1
