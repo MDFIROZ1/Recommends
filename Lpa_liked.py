@@ -63,7 +63,7 @@ for element in data2user_list :
 
 ###propagate########    
 
-k = 10 ##number of iteration
+k = 100 ##number of iteration
 for iteration in range(0,k-1):
     print "iteration:"+str(iteration)
     if iteration == 0:

@@ -1,16 +1,17 @@
 import pickle
 
-with open('productneighbor.pkl',"rb") as pronei:
+with open('prscore.pkl',"rb") as pronei:
     neighbor = pickle.load(pronei)
 
 
 count = 0
 
 print len(neighbor)
-print len(neighbor[0][0])
-print len(neighbor[0][1])
+print len(neighbor[0])
+#print len(neighbor[0][1])
 
-print neighbor[0]
+#print neighbor[0]
+#print len(neighbor[0])
 '''
 for  i in neighbor:
 	if count <= 0:

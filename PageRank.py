@@ -36,10 +36,10 @@ def Generate_Transfer_Matrix(G):
     # generate Transfer probability matrix M, shape of (n,n)
     M = np.zeros([n,n])
     for node1 in G.keys():
-	print node1
-	print ('================')
+	#print node1
+	#print ('================')
         for node2 in G[node1]:
-	    print node2
+	    #print node2
             # FIXME: some nodes not in the Graphs.keys, may incur some errors
             try:
                 M[node2index[node2],node2index[node1]] = 1/len(G[node1])
@@ -50,9 +50,9 @@ def Generate_Transfer_Matrix(G):
 
 if __name__ == '__main__':
     alpha = 0.85
-    root = 'B000CQ26E0'
+    root = 'B0030VJ8YU'
     num_iter = 100
-    num_candidates = 10
+    num_candidates = 100
     '''
     G = {'A' : {'a' : 1, 'c' : 1},
          'B' : {'a' : 1, 'b' : 1, 'c':1, 'd':1},
@@ -71,7 +71,7 @@ if __name__ == '__main__':
             temp[j[0]] = j[1]
         G[i[0]] = temp
 
-
+    print G
     M, node2index, index2node = Generate_Transfer_Matrix(G)
     # print transfer matrix
     #print(pd.DataFrame(M, index=G.keys(), columns=G.keys()))
