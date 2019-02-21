@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import pickle
+
 
 def PageRank(M, alpha, root):
     """
@@ -44,9 +46,10 @@ def Generate_Transfer_Matrix(G):
 
 if __name__ == '__main__':
     alpha = 0.85
-    root = 'A'
+    root = 'B000CQ26E0'
     num_iter = 100
     num_candidates = 10
+'''
     G = {'A' : {'a' : 1, 'c' : 1},
          'B' : {'a' : 1, 'b' : 1, 'c':1, 'd':1},
          'C' : {'c' : 1, 'd' : 1},
@@ -54,9 +57,22 @@ if __name__ == '__main__':
          'b' : {'B' : 1},
          'c' : {'A' : 1, 'B' : 1, 'C':1},
          'd' : {'B' : 1, 'C' : 1}}
+'''
+    with open('productneighbor.pkl',"rb") as pronei:
+        neighbordic = pickle.load(pronei)
+    G = {}
+    for i in pronei:
+        temp = {}
+        for j in i[1:]:
+            temp[j[0]] = j[1]
+        G[i[0]] = temp
+
+
     M, node2index, index2node = Generate_Transfer_Matrix(G)
     # print transfer matrix
-    print(pd.DataFrame(M, index=G.keys(), columns=G.keys()))
+    #print(pd.DataFrame(M, index=G.keys(), columns=G.keys()))
     result = PageRank(M, alpha, root)
     # print results
     print(result)
+    with open('PRscore.pkl',"wb") as pr:
+        pickle.dump(result, pr)
