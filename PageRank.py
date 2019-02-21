@@ -53,7 +53,7 @@ if __name__ == '__main__':
     root = 'B000CQ26E0'
     num_iter = 100
     num_candidates = 10
-'''
+    '''
     G = {'A' : {'a' : 1, 'c' : 1},
          'B' : {'a' : 1, 'b' : 1, 'c':1, 'd':1},
          'C' : {'c' : 1, 'd' : 1},
@@ -61,11 +61,11 @@ if __name__ == '__main__':
          'b' : {'B' : 1},
          'c' : {'A' : 1, 'B' : 1, 'C':1},
          'd' : {'B' : 1, 'C' : 1}}
-'''
+    '''
     with open('productneighbor.pkl',"rb") as pronei:
         neighbordic = pickle.load(pronei)
     G = {}
-    for i in pronei:
+    for i in neighbordic:
         temp = {}
         for j in i[1:]:
             temp[j[0]] = j[1]
