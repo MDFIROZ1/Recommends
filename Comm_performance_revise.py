@@ -11,13 +11,13 @@ def getKeysByValue(dictOfElements, valueToFind):
  
 
 
-with open('testdata20up.pkl',"rb") as test:
+with open('testdata5up.pkl',"rb") as test:
     testdata = pickle.load(test)
 
-with open('labelcurr80it.pkl',"rb") as test:
+with open('labelcurr20it.pkl',"rb") as test:
     label = pickle.load(test)
 
-with open('user_dic80it.pkl',"rb") as test:
+with open('user_dic20it.pkl',"rb") as test:
     user_dic = pickle.load(test)
 
 totalguess = 0
@@ -68,7 +68,7 @@ for data in testdata:
             break
     wrong += 1
 
-text_file = open("result20up_Comm_80it_10guess.txt", "w")
+text_file = open("result5up_Comm_20it_10guess.txt", "w")
 text_file.write('Total guess: %s' % str(totalguess))
 text_file.write('\n')
 text_file.write('Correct answer: %s' % str(correct))
