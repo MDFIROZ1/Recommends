@@ -63,7 +63,7 @@ for element in data2user_list :
 
 ###propagate########    
 
-k = 100 ##number of iteration
+k = 90 ##number of iteration
 for iteration in range(0,k-1):
     print "iteration:"+str(iteration)
     if iteration == 0:
@@ -106,7 +106,7 @@ for iteration in range(0,k-1):
 
 
 #######output the commmunity############33
-with open('labelcurr.pkl', 'wb') as out:
+with open('labelcurr90it.pkl', 'wb') as out:
     pickle.dump(labelcurr, out)
-with open('user_dic.pkl', 'wb') as out:
+with open('user_dic90it.pkl', 'wb') as out:
     pickle.dump(user_dic, out)

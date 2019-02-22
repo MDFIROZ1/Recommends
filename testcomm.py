@@ -1,6 +1,6 @@
 import pickle
 from collections import  Counter 
-with open('labelcurr.pkl',"rb") as train:
+with open('labelcurr90it.pkl',"rb") as train:
     data = pickle.load(train)
 
 print len(data)
@@ -17,6 +17,6 @@ print data
 '''
 data = Counter(data)
 print len( data.most_common(10000))
-
+print data.most_common(10000)
 print len(set(data))
 print len(data)

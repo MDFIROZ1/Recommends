@@ -1,13 +1,16 @@
 import pickle
 
-with open('prscore.pkl',"rb") as pronei:
+with open('labelcurr.pkl',"rb") as pronei:
     neighbor = pickle.load(pronei)
+with open('user_dic.pkl',"rb") as pronei:
+    user = pickle.load(pronei)
 
 
-count = 0
+#count = 0
 
 print len(neighbor)
-print len(neighbor[0])
+print user
+#print len(neighbor[0])
 #print len(neighbor[0][1])
 
 #print neighbor[0]
